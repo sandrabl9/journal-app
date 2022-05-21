@@ -2,10 +2,8 @@ version: '3.4'
 services:
   client_pruebas_react:
     build:
-      context: .
+      context: ./docker/local
       target: pruebas-react
-      dockerfile: ./docker/local/node.Dockerfile
-    command: ['npm', 'start']
     volumes:
       - ./:/home/app/
       - shared_dist_pruebas_react:/home/app/dist/

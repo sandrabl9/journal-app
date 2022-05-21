@@ -1,0 +1,11 @@
+FROM node:16.15-alpine AS pruebas-react
+RUN apk add --update \
+  python3 build-base ca-certificates git \
+  bash \
+  && rm -rf /var/cache/apk/*
+
+
+WORKDIR /home/app
+
+COPY entrypoint.sh /home/entrypoint.sh
+ENTRYPOINT ["/bin/bash", "/home/entrypoint.sh"]
