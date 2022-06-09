@@ -1,7 +1,7 @@
 import { types } from '../../types/types'
 // {
 //     uid: 'nahndk1264a2',
-//     user: 'Sandra'
+//     userName: 'Sandra'
 // }
 
 export const authReducer = (state = {}, action) => {

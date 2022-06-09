@@ -16,7 +16,7 @@
 } 
 
 .auth__title {
-    color: darken($color: $primary, $amount: 30);
+    color: darken($color: $primary, $amount: 10);
     margin-bottom: 20px;
 }
 
@@ -51,7 +51,7 @@
 }
 
 .auth__alert-error {
-    background-color: #f00;
+    background-color: rgba(237, 17, 17, 0.692);
     border-radius: 5px;
     color: #fff;
     display: flex;
