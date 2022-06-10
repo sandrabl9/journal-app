@@ -26,7 +26,6 @@ export const uiReducer = ( state = initialState, action ) => {
             return {
                 ...state,
                 loading: false,
-                msgError: null
             }
             
             

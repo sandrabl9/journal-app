@@ -1,16 +1,14 @@
 import React from 'react'
+
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import validator from 'validator'
 import { startGoogleLogin, startLoginEmailPassword } from '../../actions/auth'
-import { setError } from '../../actions/ui'
 import { useForm } from '../../hooks/useForm'
 
 export const LoginScreen = () => {
   
   const dispatch = useDispatch();
   const { loading } = useSelector(state => state.ui);
-  const { msgError } = useSelector(state => state.ui)
 
   const [ formValues, handleInputChange, reset ] = useForm({
     email: '',
@@ -24,22 +22,9 @@ export const LoginScreen = () => {
     e.preventDefault();
     dispatch( startLoginEmailPassword(email, password))
 
-    if ( isFormValid() ) {
-      dispatch( startLoginEmailPassword( email, password ))
-    }
     reset()
   }
   
-const isFormValid = () => {
-   if ( !validator.isEmail ( email ) ) {
-    dispatch( setError('Email no valid') )
-    return false
-  } else if ( password.length < 5 ) {
-    dispatch( setError('Password should be alt least 6 characters and match password') )
-    return false
-  }
- return true
-}
 
   const handleGoogleLogin = () => {
     dispatch( startGoogleLogin() )
@@ -48,12 +33,6 @@ const isFormValid = () => {
   return (
     <div>
        <h3 className='auth__title'>Login</h3>
-         {
-            msgError && 
-            <div className='auth__alert-error'>
-              {msgError}
-            </div>
-          }
        <form onSubmit={ handleSubmit }>
          <input
             value={ email }
