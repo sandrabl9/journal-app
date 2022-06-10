@@ -10,9 +10,9 @@ export const LoginScreen = () => {
   
   const dispatch = useDispatch();
   const { loading } = useSelector(state => state.ui);
-  const {msgError} = useSelector(state => state.ui)
+  const { msgError } = useSelector(state => state.ui)
 
-  const [formValues, handleInputChange] = useForm({
+  const [ formValues, handleInputChange, reset ] = useForm({
     email: '',
     password: ''
 
@@ -27,6 +27,7 @@ export const LoginScreen = () => {
     if ( isFormValid() ) {
       dispatch( startLoginEmailPassword( email, password ))
     }
+    reset()
   }
   
 const isFormValid = () => {
