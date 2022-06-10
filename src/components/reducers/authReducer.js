@@ -1,4 +1,5 @@
 import { types } from '../../types/types'
+
 // {
 //     uid: 'nahndk1264a2',
 //     userName: 'Sandra'
@@ -9,11 +10,12 @@ export const authReducer = (state = {}, action) => {
         case types.login:
             return {
                 uid: action.payload.uid,
-                user: action.payload.displayName
+                userName: action.payload.displayName
             }
          
         case types.logout:
-            return {}    
+            return {}   
+
         default:
             return state;
     }
