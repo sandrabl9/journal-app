@@ -7,8 +7,8 @@ import { useForm } from '../../hooks/useForm'
 
 export const LoginScreen = () => {
   
-  const dispatch = useDispatch();
-  const { loading } = useSelector(state => state.ui);
+  const dispatch = useDispatch()
+  const { loading } = useSelector(state => state.ui)
 
   const [ formValues, handleInputChange, reset ] = useForm({
     email: '',
