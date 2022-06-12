@@ -64,7 +64,7 @@ export const NoteScreen = () => {
 
                 <div className='notes__image'>
                     <img
-                    src='https://www.cambio16.com/wp-content/uploads/2017/04/fotos-impresionantes-imagenes-que-parecen-modificadas-con-photoshop-7.jpeg'
+                    src={ note.url }
                     alt='cloud'
                     />
                 </div>

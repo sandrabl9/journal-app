@@ -9,7 +9,7 @@ export const NoteAppBar = () => {
 
   const handleSave = () => {
     dispatch( startSaveNote( active ))
-
+    
   }
 
   const handlePicture = () => {

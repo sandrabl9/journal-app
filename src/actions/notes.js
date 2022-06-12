@@ -65,6 +65,8 @@ export const startSaveNote = ( note ) => {
         catch (e) {
             alert('Something went wrong')
         }
+
+        dispatch( startLoadingNotes( uid )) //cargar notas lateral después de guardar una nota
     }
 }
 
@@ -83,10 +85,21 @@ export const refreshNote = ( id, note ) => ({
 export const startUploading = ( file ) => {
     return async(dispatch, getState) => {
         const { active: activeNote } = getState().notes
+        Swal.fire({
+            title: 'Uploading...',
+            text: 'Please wait, this takes time',
+            showConfirmButton: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        })
 
         const fileUrl = await fileUpload(file)
+        activeNote.url = fileUrl
 
-        console.log(fileUrl)
+        dispatch( startSaveNote( activeNote ))
+
+        Swal.close()
 
     }
 }
