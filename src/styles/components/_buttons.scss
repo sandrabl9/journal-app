@@ -30,6 +30,17 @@
     }
 
 }
+
+.btn-secondary {
+    background-color: $dark-grey;
+    border-radius: 3px;
+
+    &:hover {
+        background-color: darken($color: $dark-grey, $amount: 15);
+    }
+
+}
+
 .btn-danger {
     background-color: #f00;
 
